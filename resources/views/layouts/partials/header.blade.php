@@ -1,4 +1,4 @@
-<header class="flex items-center justify-between py-3 px-6 border-b border-gray-100">
+<header class="flex items-center justify-between py-3 px-6 border-b border-gray-100 bg-white">
     <div id="header-left" class="flex items-center">
         <div class="text-gray-800 font-semibold">
             <span class="text-blue-500 text-xl">dev.dive</span>
@@ -7,12 +7,9 @@
         <div class="top-menu ml-10">
 
             <ul class="flex space-x-4">
-                <li>
-                    <a class="flex space-x-2 items-center hover:text-blue-500 text-sm text-gray-500" href="">
-                        Home
-                    </a>
-                </li>
-
+                <x-nav-link :href="route('home')" :active="request()->routeIs('home')">
+                    {{ __('Home') }}
+                </x-nav-link>
                 <li>
                     <a class="flex space-x-2 items-center hover:text-blue-500 text-sm text-gray-500" href="">
                         Blog
