@@ -19,7 +19,7 @@
     @livewireStyles
 </head>
 
-<body class="font-mono antialiased">
+<body class="font-sans antialiased">
     <x-banner />
     @include('layouts.partials.header')
     <div class="min-h-screen bg-gray-100">

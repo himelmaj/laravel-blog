@@ -19,12 +19,12 @@
     @livewireStyles
 </head>
 
-<body class="font-mono antialiased bg-gray-100">
+<body class="font-sans antialiased bg-gray-100">
     @include('layouts.partials.header')
 
-    @yield('header')
+    @yield('header-title')
 
-    
+
 
     <main class="container mx-auto px-5 flex flex-grow">
         {{ $slot }}

@@ -1,7 +1,7 @@
-<header class="flex items-center justify-between py-3 px-6 border-b border-gray-100 bg-white">
+<header class="flex items-center justify-between py-3 px-6 border-b h-14 border-gray-100 bg-white">
     <div id="header-left" class="flex items-center">
         <div class="text-gray-800 font-semibold">
-            <span class="text-blue-500 text-xl">dev.dive</span>
+            <x-application-mark class="block h-9 w-auto" />
         </div>
 
         <div class="top-menu ml-10">
@@ -10,45 +10,19 @@
                 <x-nav-link :href="route('home')" :active="request()->routeIs('home')">
                     {{ __('Home') }}
                 </x-nav-link>
-                <li>
-                    <a class="flex space-x-2 items-center hover:text-blue-500 text-sm text-gray-500" href="">
-                        Blog
-                    </a>
-                </li>
-
-                <li>
-                    <a class="flex space-x-2 items-center hover:text-blue-500 text-sm text-gray-500" href="">
-                        About Us
-                    </a>
-                </li>
-
-                <li>
-                    <a class="flex space-x-2 items-center hover:text-blue-500 text-sm text-gray-500" href="">
-                        Contact Us
-                    </a>
-                </li>
-
-                <li>
-                    <a class="flex space-x-2 items-center hover:text-blue-500 text-sm text-gray-500"
-                        href="terms-of-service">
-                        Terms
-                    </a>
-                </li>
-
+                <x-nav-link :href="route('blog')" :active="request()->routeIs('blog')">
+                    {{ __('Blog') }}
+                </x-nav-link>
             </ul>
         </div>
     </div>
 
 
     <div id="header-right" class="flex items-center md:space-x-6">
-        @guest
-            @include('layouts.partials.header-right-guest')
-        @endguest
-
-        <!-- Settings Dropdown -->
-
         @auth
             @include('layouts.partials.header-right-auth')
+        @else
+            @include('layouts.partials.header-right-guest')
         @endauth
     </div>
 </header>
