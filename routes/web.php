@@ -15,18 +15,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return redirect('home');
-});
-// Route::get('/dashboard', function () {
-//     return redirect('home');
-// });
+Route::get('/', function () { return redirect('home');});
+Route::get('/dashboard', function () { return redirect('home');});
 
 Route::get('/home', HomeController::class)->name('home');
 Route::get('/blog', PostController::class)->name('blog');
 
 
-Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])->group(function () {
-    // Route::get('/dashboard', function () {return view('dashboard');})->name('dashboard');
 
+Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified',])->group(function () {
+    
 });

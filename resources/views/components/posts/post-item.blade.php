@@ -3,7 +3,7 @@
 <article class="[&:not(:last-child)]:border-b border-gray-100 pb-10">
     <div class="article-body grid grid-cols-12 gap-3 mt-5 items-start">
         <div class="article-thumbnail col-span-4 flex items-center">
-            <a href="{{$post->slug}}">
+            <a href="/blog/{{$post->slug}}">
                 <img class="mw-100 mx-auto rounded-xl" src="{{$post->image}}" alt="{{$post->title}}">
             </a>
         </div>
@@ -14,19 +14,19 @@
                 <span class="text-gray-500 text-xs">{{$post->published_at->diffForHumans()}}</span>
             </div>
             <h2 class="text-xl font-bold text-gray-900">
-                <a href="http://127.0.0.1:8000/blog/first%20post">
+                <a href="">
                     {{$post->title}}
                 </a>
             </h2>
 
-            <p class="mt-2 text-base text-gray-700 font-light">
+            <p class="mt-2 text-base text-gray-700">
                 {{$post->getExcerptAttribute()}}
             </p>
             <div class="article-actions-bar mt-6 flex items-center justify-between">
                 <div class="flex items-center space-x-4">
                     <span class="text-gray-500 text-sm">{{$post->getReadingTime()}} min read</span>
                 </div>
-                <div>
+                {{-- <div>
                     <a class="flex items-center">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                             stroke-width="1.5" stroke="currentColor"
@@ -38,7 +38,7 @@
                             1
                         </span>
                     </a>
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>

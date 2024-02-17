@@ -19,7 +19,7 @@
     @livewireStyles
 </head>
 
-<body class="font-sans antialiased bg-gray-100">
+<body class="antialiased bg-gray-100">
     @include('layouts.partials.header')
 
     @yield('header-title')

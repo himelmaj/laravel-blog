@@ -1,6 +1,18 @@
-<footer class="text-sm space-x-4 flex items-center border-t border-gray-100 bg-white flex-wrap justify-center py-4 ">
-    <a class="text-gray-500 hover:text-blue-500" href="">About Us</a>
-    <a class="text-gray-500 hover:text-blue-500" href="">Help</a>
-    <a class="text-gray-500 hover:text-blue-500" href="">Login</a>
-    <a class="text-gray-500 hover:text-blue-500" href="">Explore</a>
+<footer class="bg-white shadow ">
+    <div class="w-full mx-auto p-4 md:flex md:items-center md:justify-between">
+      <span class="text-sm text-gray-500 sm:text-center hover:text-blue-500">© 2023 Himel Majumder. All Rights Reserved.
+    </span>
+    <ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
+        <li>
+            <x-link-footer href="https://github.com/himelmaj/laravel-blog">
+                {{ __('GitHub') }}
+            </x-link-footer>
+        </li>
+        <li>
+            <x-link-footer href="https://www.linkedin.com/in/himelmaj/">
+                {{ __('LinkedIn') }}
+            </x-link-footer>
+        </li>
+    </ul>
+    </div>
 </footer>

@@ -38,7 +38,8 @@ class Post extends Model
 
     public function getExcerptAttribute()
     {
-        return substr($this->body, 0, 150);
+
+        return rtrim(substr($this->body, 0, 150)).'...';
     }
 
 }
