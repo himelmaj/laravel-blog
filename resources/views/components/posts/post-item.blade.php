@@ -4,7 +4,7 @@
     <div class="article-body grid grid-cols-12 gap-3 mt-5 items-start">
         <div class="article-thumbnail col-span-4 flex items-center">
             <a href="/blog/{{$post->slug}}">
-                <img class="mw-100 mx-auto rounded-xl" src="{{$post->image}}" alt="{{$post->title}}">
+                <img class="mw-100 mx-auto rounded-xl" src="{{$post->getImagePathAttribute()}}" alt="{{$post->title}}">
             </a>
         </div>
         <div class="col-span-8">

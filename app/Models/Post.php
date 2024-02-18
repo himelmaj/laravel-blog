@@ -5,10 +5,23 @@ namespace App\Models;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\Storage;
 
 class Post extends Model
 {
     use HasFactory;
+    use SoftDeletes;
+
+    protected $fillable = [
+        'user_id',
+        'title',
+        'slug',
+        'image',
+        'body',
+        'published_at',
+        'featured',
+    ];
 
     protected $casts = [
         'published_at' => 'datetime',
@@ -20,6 +33,11 @@ class Post extends Model
         return $this->belongsTo(User::class, 'user_id');
     }
 
+    public function categories()
+    {
+        return $this->belongsToMany(Category::class);
+    }
+
     public function scopePublished($query)
     {
         $query->where('published_at', '<=', Carbon::now());
@@ -28,6 +46,18 @@ class Post extends Model
     {
         $query->where('featured', true);
     }
+
+    public function scopeWithCategory($query, string $category)
+    {
+        $query->whereHas('categories', function ($query) use($category) {
+            $query->where('slug', $category);
+        });
+
+
+
+    }
+
+
     public function getReadingTime()
     {
         $wordCount = str_word_count(strip_tags($this->body));
@@ -42,4 +72,8 @@ class Post extends Model
         return rtrim(substr($this->body, 0, 150)).'...';
     }
 
+    public function getImagePathAttribute()
+    {
+        return (str_contains($this->image, 'http')) ? $this->image : Storage::url($this->image);
+    }
 }
