@@ -17,7 +17,7 @@ class PostList extends Component
     use WithPagination;
 
     #[Url()]
-    public $sort = 'asc';
+    public $sort = 'desc';
 
     #[Url()]
     public $search = '';
@@ -27,7 +27,7 @@ class PostList extends Component
     
     public function setSort()
     {
-        $this->sort = ($this->sort === 'asc') ? 'desc' : 'asc';
+        $this->sort = ($this->sort === 'desc') ? 'asc' : 'desc';
     }
     
     #[On('search')]

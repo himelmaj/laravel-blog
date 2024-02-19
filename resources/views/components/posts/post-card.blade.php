@@ -2,7 +2,7 @@
 
 <article class="m-2">
     <a href="">
-        <img class="w-full h-64 object-cover rounded-xl" src="{{ $post->image }}" alt="{{$post->title}}">
+        <img class="w-full h-64 object-cover rounded-xl" src="{{ $post->getImagePathAttribute() }}" alt="{{$post->title}}">
     </a>
     <div class="mt-3">
         <div class="flex items-center mb-2">
