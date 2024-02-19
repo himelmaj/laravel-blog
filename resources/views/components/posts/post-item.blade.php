@@ -21,9 +21,11 @@
                 </a>
             </h2>
 
-            <p class="mt-2 text-base text-gray-700">
-                {!! $post->getExcerptAttribute() !!}
-            </p>
+            <div>
+                <p class="mt-2 text-base text-gray-700">
+                    {!! $post->getExcerptAttribute() !!}
+                </p>
+            </div>
             <div class="article-actions-bar mt-6 flex items-center justify-between">
                 <div class="flex items-center space-x-4">
                     <span class="text-gray-500 text-sm">{{ $post->getReadingTime() }} min read</span>
