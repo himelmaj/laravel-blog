@@ -1,12 +1,10 @@
 @props(['post'])
 
-<article class="[&:not(:last-child)]:border-b border-gray-100 pb-10">
-    <div class="article-body grid grid-cols-12 gap-3 mt-5 items-start">
-        <div class="article-thumbnail col-span-4 flex items-center">
-            <a href="/blog/{{ $post->slug }}">
-                <img class="mw-100 mx-auto rounded-xl" src="{{ $post->getImagePathAttribute() }}"
+<article class="transition-all duration-75 ease-in-out h-full block relative top-0 hover:-top-2 shadow-lg hover:shadow-xl bg-white rounded-xl overflow-hidden mb-10">
+    <div class="article-body grid grid-cols-12 gap-3 items-start">
+        <div class=" col-span-4 flex items-center p-2">
+                <img class="squiggle w-full  object-cover" src="{{ $post->getImagePathAttribute() }}"
                     alt="{{ $post->title }}">
-            </a>
         </div>
         <div class="col-span-8">
             <div class="article-meta flex py-1 text-sm items-center">
@@ -47,3 +45,9 @@
         </div>
     </div>
 </article>
+
+
+<a href="">
+
+
+</a>

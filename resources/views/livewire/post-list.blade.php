@@ -17,4 +17,5 @@
     <div class="my-3">
         {{ $this->posts->links() }}
     </div>
+
 </div>

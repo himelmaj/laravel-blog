@@ -23,7 +23,7 @@
                 @endforeach
 
             </div>
-            <a class="mt-10 block text-center text-lg text-blue-500 font-semibold" href="{{route('blog')}}">More Posts</a>
+            <a class="mt-10 block text-center text-lg text-blue-500 font-semibold" href="{{route('blog')}}">See All</a>
         </div>
         <hr>
 
@@ -35,7 +35,7 @@
             @endforeach
 
         </div>
-        <a class="mt-10 block text-center text-lg text-blue-500 font-semibold" href="{{route('blog')}}">More Posts</a>
+        <a class="mt-10 block text-center text-lg text-blue-500 font-semibold" href="{{route('blog')}}">See All</a>
     </div>
 
 
