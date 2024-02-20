@@ -1,4 +1,4 @@
-<footer class="bg-white shadow ">
+<footer class="bg-white border-b shadow-sm">
     <div class="w-full mx-auto p-4 md:flex md:items-center md:justify-between">
       <span class="text-sm text-gray-500 sm:text-center hover:text-blue-500">© 2023 Himel Majumder. All Rights Reserved.
     </span>

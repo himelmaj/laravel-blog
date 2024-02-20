@@ -13,8 +13,8 @@ class PostController extends Controller
         return view('blog');
     }
 
-    public function post()
+    public function show(Post $post)
     {
-        return view('post');
+        return view('show', ['post' => $post]);
     }
 }

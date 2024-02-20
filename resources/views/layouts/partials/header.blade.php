@@ -1,4 +1,4 @@
-<header class="flex items-center justify-between py-3 px-6 border-b h-14 border-gray-100 bg-white shadow">
+<header class="flex items-center justify-between py-3 px-6 border-b h-14 border-gray-100 bg-white shadow-sm">
     <div id="header-left" class="flex items-center">
         <div class="text-gray-800 font-semibold">
             <x-application-mark class="block h-9 w-auto" />

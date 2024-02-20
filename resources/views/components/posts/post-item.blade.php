@@ -1,22 +1,25 @@
 @props(['post'])
 
-<article class="transition-all duration-75 ease-in-out h-full block relative top-0 hover:-top-2 shadow-lg hover:shadow-xl bg-white rounded-xl overflow-hidden mb-10">
+<a class="transition-all duration-75 ease-in-out h-full block relative top-0 hover:-top-2 shadow-lg hover:shadow-xl 
+        bg-white rounded-md overflow-hidden mb-10 " href="{{ route('show', $post->slug) }}">
     <div class="article-body grid grid-cols-12 gap-3 items-start">
-        <div class=" col-span-4 flex items-center p-2">
-                <img class="squiggle w-full  object-cover" src="{{ $post->getImagePathAttribute() }}"
+
+        <div class=" col-span-3 flex items-center p-2">
+                <img class="squiggle object-cover rounded-lg" src="{{ $post->getImagePathAttribute() }}"
                     alt="{{ $post->title }}">
         </div>
+
+
         <div class="col-span-8">
-            <div class="article-meta flex py-1 text-sm items-center">
-                <img class="w-7 h-7 rounded-full mr-3" src="{{ $post->author->profile_photo_url }}"
-                    alt="Avatar {{ $post->author->name }}">
+
+            <div class="flex py-3 text-sm items-center">
+                <img class="w-7 h-7 rounded-full mr-3" src="{{ $post->author->profile_photo_url }}" alt="Profile avatar {{ $post->author->name }}">
                 <span class="mr-1 text-xs">{{ $post->author->name }}</span>
                 <span class="text-gray-500 text-xs">{{ $post->published_at->diffForHumans() }}</span>
             </div>
+
             <h2 class="text-xl font-bold text-gray-900">
-                <a href="">
                     {{ $post->title }}
-                </a>
             </h2>
 
             <div>
@@ -44,7 +47,7 @@
             </div>
         </div>
     </div>
-</article>
+</a>
 
 
 <a href="">
