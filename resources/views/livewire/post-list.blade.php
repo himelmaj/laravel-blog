@@ -8,7 +8,7 @@
             <h4 class="font-semibold text-lg text-gray-500">No posts found for the search term '{{ $this->search }}'.</h4>
         @else
             @foreach ($this->posts as $post)
-                <x-posts.post-item :post="$post" />
+                <x-posts.post-item :post="$post" :key="$post->slug"/>
             @endforeach
         @endif
 

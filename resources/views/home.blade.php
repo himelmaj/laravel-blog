@@ -16,26 +16,26 @@
     <div class="mb-10 w-full">
         <div class="mb-16">
             <h2 class="mt-16 mb-5 text-3xl text-blue-500 font-bold mx-4">Featured Posts</h2>
-            <div class="grid md:grid-cols-3 xl:grid-cols-3 sm:grid-cols-1 gap-3 mx-3">
+            <div class="grid grid-cols-4 gap-4 mx-3">
 
                 @foreach ($featuredPosts as $post)
                     <x-posts.post-card :post="$post" />
                 @endforeach
 
             </div>
-            <a class="mt-10 block text-center text-lg text-blue-500 font-semibold" href="{{route('blog')}}">See All</a>
+            <a class="mt-10 block text-center text-lg text-blue-500 font-semibold" href="{{route('blog')}}" wire:navigate.hover>See All</a>
         </div>
         <hr>
 
         <h2 class="mt-16 mb-5 text-3xl text-blue-500 font-bold mx-4">Latest Posts</h2>
-        <div class="grid md:grid-cols-3 xl:grid-cols-3 sm:grid-cols-1 gap-3 mx-3">
+        <div class="grid grid-cols-4 gap-4 mx-3">
 
             @foreach ($latestPosts as $post)
                 <x-posts.post-card :post="$post" />
             @endforeach
 
         </div>
-        <a class="mt-10 block text-center text-lg text-blue-500 font-semibold" href="{{route('blog')}}">See All</a>
+        <a class="mt-10 block text-center text-lg text-blue-500 font-semibold" href="{{route('blog')}}" wire:navigate.hover>See All</a>
     </div>
 
 

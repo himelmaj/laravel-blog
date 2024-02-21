@@ -1,7 +1,7 @@
-@props(['post'])
+@props(['post', 'key'])
 
-<a class="transition-all duration-75 ease-in-out h-full block relative top-0 hover:-top-2 shadow-lg hover:shadow-xl 
-        bg-white rounded-md overflow-hidden mb-10 " href="{{ route('show', $post->slug) }}">
+<a {{ $attributes }} class="transition-all duration-75 ease-in-out h-full block relative top-0 hover:-top-2 shadow-lg hover:shadow-xl 
+        bg-white rounded-md overflow-hidden mb-10 " href="{{ route('show', $post->slug) }}" wire:navigate wire:key="{{$key}}">
     <div class="article-body grid grid-cols-12 gap-3 items-start">
 
         <div class=" col-span-3 flex items-center p-2">

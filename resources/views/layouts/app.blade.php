@@ -20,23 +20,16 @@
 </head>
 
 <body class="antialiased bg-white">
+
     @include('layouts.partials.header')
-
     @yield('header-title')
-
-
-
     <main class="container mx-auto px-5 flex flex-grow">
         {{ $slot }}
-
     </main>
-
-    @include('layouts.partials.footer')
-
-
-
+    @persist('footer')
+        @include('layouts.partials.footer')
+    @endpersist
     @stack('modals')
-
     @livewireScripts
 </body>
 
