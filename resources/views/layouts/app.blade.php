@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="scroll-smooth focus:scroll-auto">
 
 <head>
     <meta charset="utf-8">
@@ -19,24 +19,17 @@
     @livewireStyles
 </head>
 
-<body class="antialiased bg-gray-100">
+<body class="antialiased bg-white">
+
     @include('layouts.partials.header')
-
     @yield('header-title')
-
-
-
     <main class="container mx-auto px-5 flex flex-grow">
         {{ $slot }}
-
     </main>
-
-    @include('layouts.partials.footer')
-
-
-
+    @persist('footer')
+        @include('layouts.partials.footer')
+    @endpersist
     @stack('modals')
-
     @livewireScripts
 </body>
 

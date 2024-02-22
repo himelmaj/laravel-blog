@@ -13,6 +13,7 @@ use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Radio;
 use Filament\Forms\Components\RichEditor;
+use Filament\Forms\Components\MarkdownEditor;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
@@ -58,10 +59,21 @@ class PostResource extends Resource
 
                 Section::make('Metadata')->schema([
                     FileUpload::make('image')
+                        ->uploadingMessage('Uploading attachment...')
+                        ->acceptedFileTypes(['image/*'])
+
+                        ->image()
+                        ->imageResizeMode('cover')
+                        ->imageCropAspectRatio('1:1')
+                        ->imageResizeTargetWidth('500')
+                        ->imageResizeTargetHeight('500')
+
                         ->label('Image')
                         ->image()
                         ->directory('posts/images')
                         ->required(),
+
+
                     Select::make('user_id')
                         ->relationship('author', 'name')
                         ->label('Author')

@@ -1,30 +1,35 @@
-@props(['post'])
+@props(['post', 'key'])
 
-<article class="[&:not(:last-child)]:border-b border-gray-100 pb-10">
-    <div class="article-body grid grid-cols-12 gap-3 mt-5 items-start">
-        <div class="article-thumbnail col-span-4 flex items-center">
-            <a href="/blog/{{$post->slug}}">
-                <img class="mw-100 mx-auto rounded-xl" src="{{$post->getImagePathAttribute()}}" alt="{{$post->title}}">
-            </a>
+<a {{ $attributes }} class="transition-all duration-75 ease-in-out h-full block relative top-0 hover:-top-2 shadow-lg hover:shadow-xl 
+        bg-white rounded-md overflow-hidden mb-10 " href="{{ route('show', $post->slug) }}" wire:navigate wire:key="{{$key}}">
+    <div class="article-body grid grid-cols-12 gap-3 items-start">
+
+        <div class=" col-span-3 flex items-center p-2">
+                <img class="squiggle object-cover rounded-lg" src="{{ $post->getImagePathAttribute() }}"
+                    alt="{{ $post->title }}">
         </div>
+
+
         <div class="col-span-8">
-            <div class="article-meta flex py-1 text-sm items-center">
-                <img class="w-7 h-7 rounded-full mr-3" src="{{$post->author->profile_photo_url}}" alt="Avatar {{$post->author->name}}">
-                <span class="mr-1 text-xs">{{$post->author->name}}</span>
-                <span class="text-gray-500 text-xs">{{$post->published_at->diffForHumans()}}</span>
+
+            <div class="flex py-3 text-sm items-center">
+                <img class="w-7 h-7 rounded-full mr-3" src="{{ $post->author->profile_photo_url }}" alt="Profile avatar {{ $post->author->name }}">
+                <span class="mr-1 text-xs">{{ $post->author->name }}</span>
+                <span class="text-gray-500 text-xs">{{ $post->published_at->diffForHumans() }}</span>
             </div>
+
             <h2 class="text-xl font-bold text-gray-900">
-                <a href="">
-                    {{$post->title}}
-                </a>
+                    {{ $post->title }}
             </h2>
 
-            <p class="mt-2 text-base text-gray-700">
-                {{$post->getExcerptAttribute()}}
-            </p>
+            <div>
+                <p class="mt-2 text-base text-gray-700">
+                    {!! $post->getExcerptAttribute() !!}
+                </p>
+            </div>
             <div class="article-actions-bar mt-6 flex items-center justify-between">
                 <div class="flex items-center space-x-4">
-                    <span class="text-gray-500 text-sm">{{$post->getReadingTime()}} min read</span>
+                    <span class="text-gray-500 text-sm">{{ $post->getReadingTime() }} min read</span>
                 </div>
                 {{-- <div>
                     <a class="flex items-center">
@@ -42,4 +47,10 @@
             </div>
         </div>
     </div>
-</article>
+</a>
+
+
+<a href="">
+
+
+</a>

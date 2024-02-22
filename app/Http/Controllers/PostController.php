@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\User;
+
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -13,8 +15,13 @@ class PostController extends Controller
         return view('blog');
     }
 
-    public function post()
+    public function show(Post $post)
     {
-        return view('post');
+        return view('show', ['post' => $post]);
+    }
+
+    public function user(User $user)
+    {
+        return view('user', ['user' => $user, 'posts' => $user->posts()->published()->latest('published_at')->get()]);
     }
 }
