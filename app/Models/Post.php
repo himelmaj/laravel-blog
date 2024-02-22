@@ -53,8 +53,6 @@ class Post extends Model
             $query->where('slug', $category);
         });
 
-
-
     }
 
 
