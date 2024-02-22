@@ -6,8 +6,8 @@
         <section>
             <h1 class="text-4xl font-bold text-left text-gray-900 mb-2">
                 {{ $post->title }} </h1>
-            <h4 class="text-sm text-zinc-500 "><a href="" class="hover:text-zinc-800">{{$post->author->name}}</a>{{', '. $post->published_at->format('F j, Y') }}</h4>
-            <img class="object-none object-center rounded-md w-full mt-6" src="{{ $post->getImagePathAttribute() }}"
+            <h4 class="text-sm text-zinc-500 "><a href="{{route('user', $post->author->email)}}" class="hover:text-zinc-800">{{$post->author->name}}</a>{{', '. $post->published_at->format('F j, Y') }}</h4>
+            <img class=" shadow-sm rounded-md w-full mt-6" src="{{ $post->getImagePathAttribute() }}"
                 alt="{{ $post->title }}">
         </section>
 

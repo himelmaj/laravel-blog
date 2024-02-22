@@ -14,5 +14,8 @@
                 
             @endif
     </div>
-    <x-button class="mt-4 bg-blue-500 hover:bg-blue-600 focus:bg-blue-300 active:bg-blue-500" wire:click.prevent="updateSearch">Search</x-button>
+    <button class="mt-4 inline-flex items-center px-4 py-2 bg-blue-300 border-2 rounded-md font-semibold
+     text-xs text-white uppercase tracking-widest hover:bg-blue-500 focus:bg-blue-500 border-blue-500
+    active:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 
+    transition ease-in-out duration-150" wire:click.prevent="updateSearch">Search</button>
 </form>
