@@ -3,8 +3,8 @@
         <article class="flex flex-wrap gap-2">
             <img src="{{ $user->profile_photo_url }}" alt="" class=" w-40 h-40">
             <div class="">
-                <h1 class="text-7xl semi-bold text-blue-500">{{ $user->name }}</h1>
-                <p class="ml-1 text-sm text-blue-400 mt-2">{{ $user->email }}</p>
+                <h1 class="xl:text-7xl lg:text-7xl md:text-4xl sm:text-2xl text-5xl semi-bold text-blue-500">{{ $user->name  }}</h1>
+                <p class="ml-1 text-sm text-blue-400 mt-2">{{ $user->email." ✨". $user->username }}</p>
             </div>
         </article>
 
