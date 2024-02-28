@@ -16,7 +16,7 @@
             @csrf
 
             <div>
-                <x-label for="email" value="{{ __('Email or Username') }}" />
+                <x-label for="loginname" value="{{ __('Email or Username') }}" />
                 <x-input id="loginname" class="block mt-1 w-full" type="text" name="loginname" :value="old('loginname')" required />
             </div>
 
