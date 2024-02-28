@@ -1,2 +1,26 @@
 User-agent: *
-Disallow:
+
+Allow: /
+
+
+# allows
+
+Allow: /home
+Allow: /blog
+Allow: /blog/*
+Allow: /login
+Allow: /register
+Allow: /sitemap.xml
+
+# disallows
+
+Disallow: /admin/
+Disallow: /panel
+Disallow: /panel/*
+Disallow: /*.css
+Disallow: /*.js
+Disallow: /*.pdf
+Disallow: /search
+Disallow: /api/*
+
+
