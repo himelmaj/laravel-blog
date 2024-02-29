@@ -76,6 +76,25 @@
             <x-input-error for="username" class="mt-2" />
         </div>
 
+        <div class="col-span-6 sm:col-span-4">
+            <x-label for="linkedin" value="{{ __('LinkedIn') }}" />
+            <div class="flex mt-1">
+                <span
+                    class="inline-flex items-center px-3 text-sm text-gray-500 bg-gray-200 border rounded-e-0 border-gray-300 rounded-s-md">
+                    <svg class="w-4 h-4 mr-2 text-gray-500 dark:text-gray-400" aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                        viewBox="0 0 448 512">
+                        <path fill="#808080"
+                            d="M100.3 448H7.4V148.9h92.9zM53.8 108.1C24.1 108.1 0 83.5 0 53.8a53.8 53.8 0 0 1 107.6 0c0 29.7-24.1 54.3-53.8 54.3zM447.9 448h-92.7V302.4c0-34.7-.7-79.2-48.3-79.2-48.3 0-55.7 37.7-55.7 76.7V448h-92.8V148.9h89.1v40.8h1.3c12.4-23.5 42.7-48.3 87.9-48.3 94 0 111.3 61.9 111.3 142.3V448z" />
+                    </svg>
+                    linkedin.com/in/
+                </span>
+                <input type="text" id="linkedin"
+                    class="rounded-none rounded-e-lg  block flex-1 min-w-0 w-full  p-2.5  border-gray-300 focus:border-blue-500 focus:ring-blue-500 shadow-sm"
+                    placeholder="" wire:model="state.linkedin">
+            </div>
+        </div>
+
         <!-- Email -->
         <div class="col-span-6 sm:col-span-4">
             <x-label for="email" value="{{ __('Email') }}" />
@@ -102,6 +121,14 @@
                 @endif
             @endif
         </div>
+
+        <!-- LinkedIn -->
+        {{-- <div class="col-span-6 sm:col-span-4">
+            <x-label for="linkedin" value="{{ __('LinkedIn') }}" />
+            <x-input id="linkedin" type="text" class="mt-1 block w-full" wire:model="state.linkedin" required
+                autocomplete="linkedin" />
+            <x-input-error for="linkedin" class="mt-2" /> --}}
+
     </x-slot>
 
     <x-slot name="actions">

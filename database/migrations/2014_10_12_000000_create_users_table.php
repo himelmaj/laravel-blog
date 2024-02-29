@@ -18,10 +18,15 @@ return new class extends Migration
             $table->string('username')->unique();
             $table->timestamp('email_verified_at')->nullable();
 
+            // Socialite
             $table->string('provider')->nullable();
             $table->string('provider_id')->nullable();
             $table->string('provider_token')->nullable();
             $table->string('provider_avatar')->nullable();
+
+            // Socials
+            $table->string('github')->nullable();
+            $table->string('linkedin')->nullable();
 
             $table->string('password')->nullable();
             $table->rememberToken();
