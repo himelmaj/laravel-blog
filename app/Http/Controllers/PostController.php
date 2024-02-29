@@ -20,7 +20,7 @@ class PostController extends Controller
         return view('show', ['post' => $post]);
     }
 
-    public function user(User $user)
+    public function userPost(User $user)
     {
         return view('user', ['user' => $user, 'posts' => $user->posts()->published()->latest('published_at')->get()]);
     }

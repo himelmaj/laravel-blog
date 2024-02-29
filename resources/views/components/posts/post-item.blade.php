@@ -13,7 +13,13 @@
         <div class="col-span-8">
 
             <div class="flex py-3 text-sm items-center">
-                <img class="w-7 h-7 rounded-full mr-3" src="{{ $post->author->profile_photo_url }}" alt="Profile avatar {{ $post->author->name }}">
+                @if ($post->author->provider_avatar != null)
+                    <img class="w-7 h-7 rounded-full mr-3" src="{{ $post->author->provider_avatar }}" alt="Profile avatar {{ $post->author->name }}">
+                
+                @else
+                    <img class="w-7 h-7 rounded-full mr-3" src="{{ $post->author->profile_photo_url }}" alt="Profile avatar {{ $post->author->name }}">
+                @endif
+                {{-- <img class="w-7 h-7 rounded-full mr-3" src="{{ $post->author->profile_photo_url }}" alt="Profile avatar {{ $post->author->name }}"> --}}
                 <span class="mr-1 text-xs">{{ $post->author->name }}</span>
                 <span class="text-gray-500 text-xs">{{ $post->published_at->diffForHumans() }}</span>
             </div>

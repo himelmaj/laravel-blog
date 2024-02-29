@@ -25,29 +25,38 @@
                 <x-label for="photo" value="{{ __('Photo') }}" />
 
                 <!-- Current Profile Photo -->
-                <div class="mt-2" x-show="! photoPreview">
-                    <img src="{{ $this->user->profile_photo_url }}" alt="{{ $this->user->name }}"
-                        class="rounded-full h-20 w-20 object-cover">
-                </div>
+                @if ($this->user->provider_avatar != null)
+                    <div class="mt-2">
+                        <img src="{{ $this->user->provider_avatar }}" alt="{{ $this->user->name }}"
+                            class="rounded-full h-20 w-20 object-cover">
+                    </div>
+                @else
+                    <div class="mt-2" x-show="! photoPreview">
+                        <img src="{{ $this->user->profile_photo_url }}" alt="{{ $this->user->name }}"
+                            class="rounded-full h-20 w-20 object-cover">
+                    </div>
+                    <!-- New Profile Photo Preview -->
+                    <div class="mt-2" x-show="photoPreview" style="display: none;">
+                        <span class="block rounded-full w-20 h-20 bg-cover bg-no-repeat bg-center"
+                            x-bind:style="'background-image: url(\'' + photoPreview + '\');'">
+                        </span>
+                    </div>
 
-                <!-- New Profile Photo Preview -->
-                <div class="mt-2" x-show="photoPreview" style="display: none;">
-                    <span class="block rounded-full w-20 h-20 bg-cover bg-no-repeat bg-center"
-                        x-bind:style="'background-image: url(\'' + photoPreview + '\');'">
-                    </span>
-                </div>
-
-                <x-secondary-button class="mt-2 me-2" type="button" x-on:click.prevent="$refs.photo.click()">
-                    {{ __('Select A New Photo') }}
-                </x-secondary-button>
-
-                @if ($this->user->profile_photo_path)
-                    <x-secondary-button type="button" class="mt-2" wire:click="deleteProfilePhoto">
-                        {{ __('Remove Photo') }}
+                    <x-secondary-button class="mt-2 me-2" type="button" x-on:click.prevent="$refs.photo.click()">
+                        {{ __('Select A New Photo') }}
                     </x-secondary-button>
+
+                    @if ($this->user->profile_photo_path)
+                        <x-secondary-button type="button" class="mt-2" wire:click="deleteProfilePhoto">
+                            {{ __('Remove Photo') }}
+                        </x-secondary-button>
+                    @endif
+
+                    <x-input-error for="photo" class="mt-2" />
                 @endif
 
-                <x-input-error for="photo" class="mt-2" />
+
+
             </div>
         @endif
 
