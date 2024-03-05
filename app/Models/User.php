@@ -32,6 +32,8 @@ class User extends Authenticatable
         'provider_id',
         'provider_token',
         'provider_avatar',
+        'github',
+        'linkedin',
     ];
 
     /**
