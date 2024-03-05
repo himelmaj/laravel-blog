@@ -33,7 +33,7 @@ class SocialController extends Controller
                 'email' => $providerResult->email,
                 'name' => ($providerResult->name === null ? $providerResult->nickname : $providerResult->name),
                 'provider_token' => $providerResult->token,
-                'provider_avatar' => $providerResult->avatar,
+                'provider_avatar' => $providerResult->avatar
             ]
         );
 
