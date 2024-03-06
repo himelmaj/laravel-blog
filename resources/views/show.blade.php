@@ -17,12 +17,9 @@
             </div>
         </section>
 
-        <section class="mt-10">
-            <h2 class="text-2xl font-semibold text-gray-900"><h2>
-        </section>
 
         <section class="mt-10">
-            <h2 class="text-2xl font-semibold text-gray-900">Comments</h2>
+            <livewire:comments :key="'comment-post-'.$post->id" :$post/>
         </section>
 
     </article>
