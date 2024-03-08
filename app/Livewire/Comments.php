@@ -20,9 +20,8 @@ class Comments extends Component
 
     public function postContent()
     {
-        if (auth()->guest()) {
-            return;
-        }
+        if (auth()->guest()) return;
+        
 
         $this->validateOnly('content');
 

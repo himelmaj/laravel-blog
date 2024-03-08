@@ -3,20 +3,53 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Filament\Models\Contracts\FilamentUser;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
+use Filament\Panel;
 
-class User extends Authenticatable
+class User extends Authenticatable implements FilamentUser
 {
     use HasApiTokens;
     use HasFactory;
     use HasProfilePhoto;
     use Notifiable;
     use TwoFactorAuthenticatable;
+
+
+    const ROLE_USER = 'user';
+    const ROLE_EDITOR = 'editor';
+    const ROLE_ADMIN = 'admin';
+
+    const DEFAULT_ROLE = self::ROLE_USER;
+
+    const ROLES = [
+        self::ROLE_USER => 'User',
+        self::ROLE_EDITOR => 'Editor',
+        self::ROLE_ADMIN => 'Admin',
+    ];
+
+    public function canAccessPanel(Panel $panel): bool
+    {
+        return  $this->isAdmin() || $this->isEditor();
+    }
+
+    public function isAdmin (): bool
+    {
+        return $this->role === self::ROLE_ADMIN;
+    }
+
+    public function isEditor (): bool
+    {
+        return $this->role === self::ROLE_EDITOR;
+    }
+
+
+
 
     /**
      * The attributes that are mass assignable.
@@ -27,6 +60,7 @@ class User extends Authenticatable
         'name',
         'email',
         'username',
+        'role',
         'password',
         'provider',
         'provider_id',
@@ -75,4 +109,5 @@ class User extends Authenticatable
     {
         return $this->hasMany(Comment::class);
     }
+
 }

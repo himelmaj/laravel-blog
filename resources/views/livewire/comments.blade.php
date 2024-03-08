@@ -5,7 +5,7 @@
             <div class="w-full mb-4 border border-gray-200 rounded-lg bg-gray-50">
                 <div class="px-4 py-2 bg-white rounded-t-lg ">
                     <label for="comment" class="sr-only">Your comment</label>
-                    <textarea id="comment" rows="4" class="w-full px-0 text-sm text-gray-900 bg-white border-0 focus:ring-0"
+                    <textarea id="comment" rows="4" class="w-full resize-none p-2 px-0 text-sm text-gray-900 bg-white border-0 focus:ring-0"
                         wire:model="content" placeholder="Write a comment..." required /></textarea>
                 </div>
                 <div class="flex items-center justify-between px-3 py-2 border-t ">
@@ -16,9 +16,7 @@
                 </div>
             </div>
         </form>
-        <p class="ms-auto text-xs text-gray-500 dark:text-gray-400">Remember, contributions to this topic should follow our
-            <a href="#" class="text-blue-600 dark:text-blue-500 hover:underline">Community Guidelines</a>.
-        </p>
+
     @else
         <a href="{{ route('login') }}" class="text-blue-500" wire:navigate>Login to comment</a>
     @endauth
@@ -27,7 +25,7 @@
     <div class="mt-6">
 
         @forelse ($this->comments as $comment)
-            <div class="flex items-center space-x-4">
+            <div class="flex items-center space-x-4 my-4">
                 <div class="flex-shrink-0">
                     @if ($comment->user->provider_avatar != null)
                         <img src="{{ $comment->user->provider_avatar }}" alt="{{ $comment->user->name }}" class="h-10 w-10 rounded-full">
@@ -51,6 +49,8 @@
         @empty
             <p class="text-gray-500">No comments yet</p>
         @endforelse
+
+        <span>{{$this->comments->links()}}</span>
 
     </div>
 

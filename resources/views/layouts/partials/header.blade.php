@@ -13,6 +13,15 @@
                 <x-nav-link :href="route('blog')" :active="request()->routeIs('blog')">
                     {{ __('Blog') }}
                 </x-nav-link>
+
+                @auth
+                    @if (auth()->user()->role !== 'user')   
+                        <x-nav-link :href="route('filament.admin.auth.login')" :active="request()->routeIs('filament.admin.auth.login')">
+                            {{ __('Admin') }}
+                        </x-nav-link>
+                        
+                    @endif
+                @endauth
             </ul>
         </div>
     </div>
